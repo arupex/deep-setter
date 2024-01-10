@@ -15,6 +15,10 @@ function arupex_deep_setter(obj, accessor, value){
     var index = 0;
 
     function cleanupIndexAccessor(key) {
+        if(key.includes('prototype') || key.includes("__proto__")) {
+            return '';
+        }
+
         return key.replace('[@', '').replace(']', '');
     }
 
